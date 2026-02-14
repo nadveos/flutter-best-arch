@@ -15,10 +15,10 @@ siguiendo Clean Architecture adaptada a Flutter.
 
 lib/
  ├── config/
- │    ├── router/
- │    ├── themes/
+ │    ├── router/             # Rutas y navegación
+ │    ├── themes/             # Temas claros/oscuro/contraste alto nunca utlizar estilos en línea
  │    ├── environment/
- │    ├── platform/
+ │    ├── platform/           # Adaptadores de plataforma (ej: FilePicker, Camera)
  │
  ├── domain/
  │    ├── datasources/        # Contratos (abstract)
@@ -26,14 +26,14 @@ lib/
  │    ├── repositories/       # Interfaces
  │
  ├── infrastructure/
- │    ├── datasources/        # Firebase / API / DB
+ │    ├── datasources/        # Implementaciones de contratos Firebase / API / DB
  │    ├── entities/           # DTOs / modelos persistencia
  │    ├── mappers/            # Entity <-> Domain
- │    ├── repositories/       # Implementaciones
+ │    ├── repositories/       # Implementaciones de repositorios (Firebase / API / DB)
  │
  ├── presentation/
  │    ├── screens/
- │    ├── widgets/
+ │    ├── widgets/            # Widgets reutilizables puros sin lógica de negocio
  │    ├── providers/          # Riverpod
  │    ├── services/           # Helpers UI (NO lógica negocio)
  │
@@ -60,12 +60,22 @@ lib/
 
 ## Backend
 - Repositorios abstractos en domain
-- Implementaciones intercambiables:
+- Codigo listo para implementaciones intercambiables:
   - Firebase
   - PocketBase
   - REST API
 
 ---
+## Internacionalización
+- Soporte obligatorio para múltiples idiomas
+- Uso de .arb files y Flutter Intl
+
+## Accesibilidad
+- Soporte obligatorio para lectores de pantalla
+- Contraste de colores adecuado
+- Etiquetas semánticas en widgets
+- Navegación accesible (teclado, screen readers)
+- Widgets adaptativos para diferentes tamaños y orientaciónes de pantalla
 
 ## Multiplataforma
 - NO usar dart:io directamente
